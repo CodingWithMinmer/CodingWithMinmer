@@ -3,3 +3,6 @@ cmake-build-debug
 .vscode/c_cpp_properties.json
 .vscode/settings.json
 tests/*
+
+# Python related
+__pycache__
