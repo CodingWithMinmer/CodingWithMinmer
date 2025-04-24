@@ -2,6 +2,7 @@
 
 #include <cassert>
 #include <vector>
+#include <climits>
 
 // VARIANT: What if you had to return the minimum cost to buy a roundtrip flight?
 // Note you cannot fly somewhere and back on the same day.

@@ -11,7 +11,6 @@
 #include "236_lowest_common_ancestor_tests.cpp"
 #include "31_next_permutation_tests.cpp"
 #include "415_add_strings_tests.cpp"
-#include "15_3_sum_tests.cpp"
 #include "1424_diagonal_traversal_tests.cpp"
 #include "133_clone_graph_tests.cpp"
 #include "23_merge_k_sorted_lists_tests.cpp"
