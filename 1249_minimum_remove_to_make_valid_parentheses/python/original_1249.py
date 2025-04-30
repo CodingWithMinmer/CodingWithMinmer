@@ -1,3 +1,4 @@
+# LC: https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/description/
 # SOURCE: https://www.youtube.com/watch?v=5YMKRfFnLEA
 def min_remove_to_make_valid(s: str) -> str:
     """
