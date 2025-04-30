@@ -1,6 +1,7 @@
 from typing import List
 
 # VARIANT: What if you had to solve the OG problem without any extra space complexity?
+# SOURCE: https://youtu.be/5YMKRfFnLEA?si=fBGWVjhJ74zAqbGu&t=1092
 def min_remove_to_make_valid_variant(s: List[str]) -> str:
     """
     NB: given that 'str' is immutable in python and does not support item 

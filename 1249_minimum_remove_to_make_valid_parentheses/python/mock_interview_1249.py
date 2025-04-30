@@ -2,6 +2,7 @@
 # Each type of parenthesis is balanced independently of the others.
 # Otherwise, this might explode into a DP problem and Meta swears to never ask 
 # Dynamic programming. They'd never lie, right?
+# SOURCE: https://youtu.be/5YMKRfFnLEA?si=mH7JdGac4K7xMETP&t=1649
 def delete_least_parentheses(s: str) -> str:
     """
     Time Complexity: O(2n) = O(n)
