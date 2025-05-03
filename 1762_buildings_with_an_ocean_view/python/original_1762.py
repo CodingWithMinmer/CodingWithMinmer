@@ -4,8 +4,8 @@ from typing import List
 # SOURCE: https://youtu.be/tbkzCFlKNWU?si=FgL2YWvfTnaIpnrK
 def find_buildings(heights: List[int]) -> List[int]:
     """
-    Time Complexity: O(n)
-    Space Complexity: O(1)
+        Time Complexity: O(n)
+        Space Complexity: O(1)
     """
 
     n = len(heights)-1

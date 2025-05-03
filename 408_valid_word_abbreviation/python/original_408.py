@@ -2,8 +2,8 @@
 # SOURCE: https://youtu.be/ALDB1fi65U8?si=GQqghgFIkpY2KPE9
 def valid_word_abbreviation(word: str, abbr: str) -> bool:
     """
-    Time Complexity: O(A), where A is the length of 'abbr'
-    Space Complexity: O(1)
+        Time Complexity: O(A), where A is the length of 'abbr'
+        Space Complexity: O(1)
     """
 
     m, n  = len(word), len(abbr)

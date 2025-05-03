@@ -12,8 +12,8 @@ class TreeNode:
 # SOURCE: https://youtu.be/iaOceNnKIQQ?si=gHn2QoQ4nRBB2JXU&t=713
 def least_common_ancestor(nodes: List[TreeNode], p: TreeNode | None, q: TreeNode | None) -> TreeNode:
     """
-    Time Complexity: O(N), where 'N' is the number of nodes in the binary tree
-    Space Complexity: O(N)
+        Time Complexity: O(N), where 'N' is the number of nodes in the binary tree
+        Space Complexity: O(N)
     """
 
     child_to_parent = {}

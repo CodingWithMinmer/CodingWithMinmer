@@ -2,8 +2,8 @@
 # SOURCE: https://www.youtube.com/watch?v=5YMKRfFnLEA
 def min_remove_to_make_valid(s: str) -> str:
     """
-    Time Complexity: O(2n) = O(n)
-    Space Complexity: O(2n) = O(n)
+        Time Complexity: O(2n) = O(n)
+        Space Complexity: O(2n) = O(n)
     """
     extra_opens = total_opens = 0
     first_pass = []

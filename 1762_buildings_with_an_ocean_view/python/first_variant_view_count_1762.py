@@ -5,8 +5,8 @@ from typing import List
 # SOURCE: https://youtu.be/tbkzCFlKNWU?si=nlapFdVpKq9plGBe&t=449
 def find_buildings_view_count(heights: List[int]) -> List[int]:
     """
-    Time Complexity: O(n)
-    Space Complexity: O(1)
+        Time Complexity: O(n)
+        Space Complexity: O(1)
     """
 
     count = 1

@@ -9,10 +9,10 @@ class TreeNode:
 # SOURCE: https://youtu.be/iaOceNnKIQQ?si=7DxL8DYk6jPmiVa3
 def least_common_ancestor(p: TreeNode, q: TreeNode) -> TreeNode:
     """
-    Time Complexity: O(h), where 'h' is the height of the binary tree, which in
-                     the worst case is equal to the number of nodes in a
-                     skewed tree
-    Space Complexity: O(1)
+        Time Complexity: O(h), where 'h' is the height of the binary tree, which
+                         in the worst case is equal to the number of nodes in a
+                         skewed tree
+        Space Complexity: O(1)
     """
 
     node_one = p

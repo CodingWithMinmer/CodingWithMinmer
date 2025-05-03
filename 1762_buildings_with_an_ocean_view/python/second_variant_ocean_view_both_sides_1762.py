@@ -5,8 +5,8 @@ from typing import List
 # SOURCE: https://youtu.be/tbkzCFlKNWU?si=vCKcgiQfzdVyVsfE&t=626
 def find_buildings_both_sides_variant(heights: List[int]) -> List[int]:
     """
-    Time Complexity: O(n)
-    Space Complexity: O(n), in the case when all the buildings have a view
+        Time Complexity: O(n)
+        Space Complexity: O(n), in the case when all the buildings have a view
     """
 
     n = len(heights)-1

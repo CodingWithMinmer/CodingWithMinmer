@@ -32,8 +32,8 @@ def recurse(word: str, abbr: str, w: int, a: int) -> bool:
 
 def valid_word_abbreviation(word: str, abbr: str) -> bool:
     """
-    Time Complexity: O(2^(A+W))
-    Space Complexity: O(W)
+        Time Complexity: O(2^(A+W))
+        Space Complexity: O(W)
     
     """
     return recurse(word, abbr, 0, 0)

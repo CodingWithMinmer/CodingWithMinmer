@@ -5,8 +5,8 @@
 # SOURCE: https://youtu.be/5YMKRfFnLEA?si=mH7JdGac4K7xMETP&t=1649
 def delete_least_parentheses(s: str) -> str:
     """
-    Time Complexity: O(2n) = O(n)
-    Space Complexity: O(2n) = O(n)
+        Time Complexity: O(2n) = O(n)
+        Space Complexity: O(2n) = O(n)
     """
     mapping = {
         ")": "(",
