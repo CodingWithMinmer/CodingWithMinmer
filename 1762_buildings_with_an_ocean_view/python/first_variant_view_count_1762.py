@@ -3,7 +3,7 @@ from typing import List
 # VARIANT: Return the number of buildings with an ocean view instead of their
 #          indices
 # SOURCE: https://youtu.be/tbkzCFlKNWU?si=nlapFdVpKq9plGBe&t=449
-def findBuildings(heights: List[int]) -> List[int]:
+def find_buildings_view_count(heights: List[int]) -> List[int]:
     """
     Time Complexity: O(n)
     Space Complexity: O(1)

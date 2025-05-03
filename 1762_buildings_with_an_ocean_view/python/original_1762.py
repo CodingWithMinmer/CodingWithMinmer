@@ -2,7 +2,7 @@ from typing import List
 
 # LC: https://leetcode.com/problems/buildings-with-an-ocean-view/
 # SOURCE: https://youtu.be/tbkzCFlKNWU?si=FgL2YWvfTnaIpnrK
-def findBuildings(heights: List[int]) -> List[int]:
+def find_buildings(heights: List[int]) -> List[int]:
     """
     Time Complexity: O(n)
     Space Complexity: O(1)

@@ -3,7 +3,7 @@ from typing import List
 # VARIANT: The buildings are on an island i.e. the ocean is both to the left
 #          and right sides of the buildings.
 # SOURCE: https://youtu.be/tbkzCFlKNWU?si=vCKcgiQfzdVyVsfE&t=626
-def findBuildings(heights: List[int]) -> List[int]:
+def find_buildings_both_sides_variant(heights: List[int]) -> List[int]:
     """
     Time Complexity: O(n)
     Space Complexity: O(n), in the case when all the buildings have a view
