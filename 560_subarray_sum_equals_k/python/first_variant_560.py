@@ -1,13 +1,13 @@
 class Solution:
     def subarraySumExists(self, nums: list[int], k: int) -> bool:
-        count, cumulative = 0, 0
+        cumulative = 0
         prefix_sums = set([0])
         for num in nums:
             cumulative += num
             if (cumulative - k) in prefix_sums:
                 return True
             prefix_sums.add(cumulative)
-        return count
+        return False
 
 
 if __name__ == "__main__":
