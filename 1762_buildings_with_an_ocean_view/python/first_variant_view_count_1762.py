@@ -1,8 +1,8 @@
 from typing import List
 
-# Variant: Return the number of buildings with an ocean view instead of their
+# VARIANT: Return the number of buildings with an ocean view instead of their
 #          indices
-# Source: https://youtu.be/tbkzCFlKNWU?si=nlapFdVpKq9plGBe&t=449
+# SOURCE: https://youtu.be/tbkzCFlKNWU?si=nlapFdVpKq9plGBe&t=449
 def findBuildings(heights: List[int]) -> List[int]:
     """
     Time Complexity: O(n)

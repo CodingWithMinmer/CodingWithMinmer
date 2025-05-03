@@ -1,5 +1,5 @@
 # LC: https://leetcode.com/problems/valid-word-abbreviation/description/
-# Source: https://youtu.be/ALDB1fi65U8?si=GQqghgFIkpY2KPE9
+# SOURCE: https://youtu.be/ALDB1fi65U8?si=GQqghgFIkpY2KPE9
 def valid_word_abbreviation(word: str, abbr: str) -> bool:
     """
     Time Complexity: O(A), where A is the length of 'abbr'

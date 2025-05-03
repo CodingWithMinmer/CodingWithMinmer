@@ -9,7 +9,7 @@ class TreeNode:
 
 # VARIANT: What if you were given all the nodes as a part of a list/vector, 
 #          and no longer the root node?
-# Source: https://youtu.be/iaOceNnKIQQ?si=gHn2QoQ4nRBB2JXU&t=713
+# SOURCE: https://youtu.be/iaOceNnKIQQ?si=gHn2QoQ4nRBB2JXU&t=713
 def least_common_ancestor(nodes: List[TreeNode], p: TreeNode | None, q: TreeNode | None) -> TreeNode:
     """
     Time Complexity: O(N), where 'N' is the number of nodes in the binary tree

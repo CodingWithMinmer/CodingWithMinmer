@@ -1,8 +1,8 @@
 from typing import List
 
-# Variant: The buildings are on an island i.e. the ocean is both to the left
+# VARIANT: The buildings are on an island i.e. the ocean is both to the left
 #          and right sides of the buildings.
-# Source: https://youtu.be/tbkzCFlKNWU?si=vCKcgiQfzdVyVsfE&t=626
+# SOURCE: https://youtu.be/tbkzCFlKNWU?si=vCKcgiQfzdVyVsfE&t=626
 def findBuildings(heights: List[int]) -> List[int]:
     """
     Time Complexity: O(n)

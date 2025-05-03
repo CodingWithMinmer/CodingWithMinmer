@@ -6,7 +6,7 @@ class TreeNode:
         self.parent = parent
 
 # LC: https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iii/
-# Source: https://youtu.be/iaOceNnKIQQ?si=7DxL8DYk6jPmiVa3
+# SOURCE: https://youtu.be/iaOceNnKIQQ?si=7DxL8DYk6jPmiVa3
 def least_common_ancestor(p: TreeNode, q: TreeNode) -> TreeNode:
     """
     Time Complexity: O(h), where 'h' is the height of the binary tree, which in
