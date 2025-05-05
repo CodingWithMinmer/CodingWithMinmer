@@ -1,5 +1,6 @@
 from typing import List
 
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -7,13 +8,15 @@ class TreeNode:
         self.right = right
 
 
-# VARIANT: What if you were given all the nodes as a part of a list/vector, 
+# VARIANT: What if you were given all the nodes as a part of a list/vector,
 #          and no longer the root node?
 # SOURCE: https://youtu.be/iaOceNnKIQQ?si=gHn2QoQ4nRBB2JXU&t=713
-def least_common_ancestor(nodes: List[TreeNode], p: TreeNode | None, q: TreeNode | None) -> TreeNode:
+def least_common_ancestor(
+    nodes: List[TreeNode], p: TreeNode | None, q: TreeNode | None
+) -> TreeNode:
     """
-        Time Complexity: O(N), where 'N' is the number of nodes in the binary tree
-        Space Complexity: O(N)
+    Time Complexity: O(N), where 'N' is the number of nodes in the binary tree
+    Space Complexity: O(N)
     """
 
     child_to_parent = {}
@@ -31,6 +34,7 @@ def least_common_ancestor(nodes: List[TreeNode], p: TreeNode | None, q: TreeNode
         node_two = child_to_parent[node_two] if node_two in child_to_parent else p
 
     return node_one
+
 
 if __name__ == "__main__":
     """
@@ -53,7 +57,6 @@ if __name__ == "__main__":
     node5 = TreeNode(5)
     node6 = TreeNode(6)
     node7 = TreeNode(7)
-
 
     # Set relationships (left, right)
     node1.left = node2

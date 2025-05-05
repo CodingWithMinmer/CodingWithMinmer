@@ -1,6 +1,6 @@
-from typing import Optional
-from itertools import accumulate
 from bisect import bisect_left
+from itertools import accumulate
+from typing import Optional
 
 
 class TreeNode:
@@ -9,12 +9,13 @@ class TreeNode:
         self.left = left
         self.right = right
 
+
 class Solution:
     def __init__(self, root):
         self.vals = []
         self.prefix_sums = []
         self.inorder(root)
-    
+
     def inorder(self, root):
         if root is None:
             return
@@ -25,7 +26,7 @@ class Solution:
         else:
             self.prefix_sums.append(self.prefix_sums[-1] + root.val)
         self.inorder(root.right)
-    
+
     def find_right_boundary(self, left, right, upper):
         while left <= right:
             mid = (right - left) // 2 + left
@@ -34,7 +35,7 @@ class Solution:
             else:
                 right = mid - 1
         return right
-    
+
     def find_left_boundary(self, left, right, lower):
         while left <= right:
             mid = (right - left) // 2 + left
@@ -43,14 +44,14 @@ class Solution:
             else:
                 left = mid + 1
         return left
-    
+
     def calculate(self, lower, upper):
         right_boundary = self.find_right_boundary(0, len(self.vals) - 1, upper)
         left_boundary = self.find_left_boundary(0, len(self.vals) - 1, lower)
-        
+
         if left_boundary == 0:
             return self.prefix_sums[right_boundary]
-        
+
         return self.prefix_sums[right_boundary] - self.prefix_sums[left_boundary - 1]
 
 

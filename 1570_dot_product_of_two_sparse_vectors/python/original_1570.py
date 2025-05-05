@@ -1,11 +1,14 @@
 from collections import namedtuple
 
+
 class SparseVector:
     def __init__(self, nums: list[int]):
         Pair = namedtuple("Pair", "index value")
-        self.pairs = [Pair(index, value) for index, value in enumerate(nums) if value != 0]
+        self.pairs = [
+            Pair(index, value) for index, value in enumerate(nums) if value != 0
+        ]
 
-    def dotProduct(self, vec: 'SparseVector') -> int:
+    def dotProduct(self, vec: "SparseVector") -> int:
         result = 0
         i, j = 0, 0
         while i < len(self.pairs) and j < len(vec.pairs):

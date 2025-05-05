@@ -13,30 +13,32 @@ def recurse(word: str, abbr: str, w: int, a: int) -> bool:
             a += 1
         return True
     elif word[w] == abbr[a]:
-        return recurse(word, abbr, w+1, a+1)
+        return recurse(word, abbr, w + 1, a + 1)
     elif abbr[a] == "0":
-            return False
+        return False
     elif abbr[a].isnumeric():
         skip = 0
         while a < len(abbr) and abbr[a].isnumeric():
-            skip = skip*10 + int(abbr[a])
+            skip = skip * 10 + int(abbr[a])
             a += 1
         w += skip
         if w > len(word):
             return False
         return recurse(word, abbr, w, a)
     elif abbr[a] == "*":
-        return recurse(word, abbr, w+1, a) or recurse(word, abbr, w, a+1)
-    
+        return recurse(word, abbr, w + 1, a) or recurse(word, abbr, w, a + 1)
+
     return False
+
 
 def valid_word_abbreviation(word: str, abbr: str) -> bool:
     """
-        Time Complexity: O(2^(A+W))
-        Space Complexity: O(W)
-    
+    Time Complexity: O(2^(A+W))
+    Space Complexity: O(W)
+
     """
     return recurse(word, abbr, 0, 0)
+
 
 if __name__ == "__main__":
     assert valid_word_abbreviation("tadpoles", "ta3l2") == True

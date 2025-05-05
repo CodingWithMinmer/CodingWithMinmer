@@ -5,14 +5,15 @@ class TreeNode:
         self.right = right
         self.parent = parent
 
+
 # LC: https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iii/
 # SOURCE: https://youtu.be/iaOceNnKIQQ?si=7DxL8DYk6jPmiVa3
 def least_common_ancestor(p: TreeNode, q: TreeNode) -> TreeNode:
     """
-        Time Complexity: O(h), where 'h' is the height of the binary tree, which
-                         in the worst case is equal to the number of nodes in a
-                         skewed tree
-        Space Complexity: O(1)
+    Time Complexity: O(h), where 'h' is the height of the binary tree, which
+                     in the worst case is equal to the number of nodes in a
+                     skewed tree
+    Space Complexity: O(1)
     """
 
     node_one = p
@@ -23,6 +24,7 @@ def least_common_ancestor(p: TreeNode, q: TreeNode) -> TreeNode:
         node_two = node_two.parent if node_two.parent else p
 
     return node_one
+
 
 if __name__ == "__main__":
     """

@@ -1,12 +1,16 @@
 from typing import List
 
+
 def try_merge(result: List[List[int]], curr_interval: List[int]):
     if not result or curr_interval[0] > result[-1][1]:
         result.append(curr_interval)
     else:
         result[-1][1] = max(curr_interval[1], result[-1][1])
 
-def merge_2_interval_lists_56_variant_python(A: List[List[int]], B: List[List[int]]) -> List[List[int]]:
+
+def merge_2_interval_lists_56_variant_python(
+    A: List[List[int]], B: List[List[int]]
+) -> List[List[int]]:
     result = []
     i, j = 0, 0
     while i < len(A) and j < len(B):
@@ -29,6 +33,7 @@ def merge_2_interval_lists_56_variant_python(A: List[List[int]], B: List[List[in
             j += 1
 
     return result
+
 
 if __name__ == "__main__":
     A = [[3, 11], [14, 15], [18, 22], [23, 24], [25, 26]]

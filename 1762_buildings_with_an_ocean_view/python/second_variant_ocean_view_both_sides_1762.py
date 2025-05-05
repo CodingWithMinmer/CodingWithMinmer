@@ -1,15 +1,16 @@
 from typing import List
 
+
 # VARIANT: The buildings are on an island i.e. the ocean is both to the left
 #          and right sides of the buildings.
 # SOURCE: https://youtu.be/tbkzCFlKNWU?si=vCKcgiQfzdVyVsfE&t=626
 def find_buildings_both_sides_variant(heights: List[int]) -> List[int]:
     """
-        Time Complexity: O(n)
-        Space Complexity: O(n), in the case when all the buildings have a view
+    Time Complexity: O(n)
+    Space Complexity: O(n), in the case when all the buildings have a view
     """
 
-    n = len(heights)-1
+    n = len(heights) - 1
     left_view = [0]
     if not n:
         return left_view
@@ -32,6 +33,7 @@ def find_buildings_both_sides_variant(heights: List[int]) -> List[int]:
     right_view.reverse()
     return left_view + right_view
 
+
 if __name__ == "__main__":
-    assert findBuildings([3]) == [0]
-    assert findBuildings([2, 5, 3, 10, 9, 8]) == [0, 1, 3, 4, 5]
+    assert find_buildings_both_sides_variant([3]) == [0]
+    assert find_buildings_both_sides_variant([2, 5, 3, 10, 9, 8]) == [0, 1, 3, 4, 5]

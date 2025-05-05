@@ -1,5 +1,6 @@
 from utils.ListNode import ListNode
 
+
 class Solution_19_Variant:
     def removeIthFromBeginning(self, head, n):
         dummy = ListNode()

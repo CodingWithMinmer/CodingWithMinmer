@@ -2,8 +2,8 @@
 # SOURCE: https://youtu.be/G2AZJDkh6_E?si=Tdnv4jX2cvos-vjU
 def basic_calculator_two(s: str) -> int:
     """
-        Time Complexity: O(n)
-        Space Complexity: O(1)
+    Time Complexity: O(n)
+    Space Complexity: O(1)
     """
     curr_num = prev_num = result = 0
     op = "+"
@@ -26,6 +26,7 @@ def basic_calculator_two(s: str) -> int:
         curr_num, op = 0, ch
 
     return result + prev_num
+
 
 if __name__ == "__main__":
     assert basic_calculator_two("11 - 6 + 2 + 4 / 2 * 3 / 2 + 5") == 15

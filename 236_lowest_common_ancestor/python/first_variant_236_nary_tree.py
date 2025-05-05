@@ -3,8 +3,11 @@ class TreeNode:
         self.val = val
         self.children = children
 
+
 class Solution:
-    def lowestCommonAncestor(self, root: "TreeNode", p: "TreeNode", q: "TreeNode") -> "TreeNode":
+    def lowestCommonAncestor(
+        self, root: "TreeNode", p: "TreeNode", q: "TreeNode"
+    ) -> "TreeNode":
         parent = {root: None}
         stack = [root]
         while p not in parent or q not in parent:

@@ -2,30 +2,31 @@ class Solution:
     def changeDirectory(self, cwd: str, cd: str) -> str:
         if not cd:
             return cwd
-        
-        if cd[0] == '/':
-            cwd = ''
-        
+
+        if cd[0] == "/":
+            cwd = ""
+
         tokens = []
-        for token in cwd.split('/'):
+        for token in cwd.split("/"):
             if token:
                 tokens.append(token)
-        
-        for token in cd.split('/'):
+
+        for token in cd.split("/"):
             if not token:
                 continue
-            if token == '.':
+            if token == ".":
                 continue
-            elif token == '..':
+            elif token == "..":
                 if tokens:
                     tokens.pop()
             else:
                 tokens.append(token)
-        
+
         if not tokens:
-            return '/'
-        
-        return '/' + '/'.join(tokens)
+            return "/"
+
+        return "/" + "/".join(tokens)
+
 
 if __name__ == "__main__":
     solution = Solution()
@@ -39,5 +40,7 @@ if __name__ == "__main__":
     assert solution.changeDirectory("/foo/bar", "../../../../..") == "/"
     assert solution.changeDirectory("/x/y", "../p/../q") == "/x/q"
     assert solution.changeDirectory("/x/y", "/p/./q") == "/p/q"
-    assert solution.changeDirectory("/facebook/anin", "../abc/def") == "/facebook/abc/def"
+    assert (
+        solution.changeDirectory("/facebook/anin", "../abc/def") == "/facebook/abc/def"
+    )
     assert solution.changeDirectory("/facebook/instagram", "../../../../.") == "/"
