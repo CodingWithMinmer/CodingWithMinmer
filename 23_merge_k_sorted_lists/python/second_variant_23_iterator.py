@@ -24,7 +24,7 @@ class Solution_23_Second_Variant:
         self.min_pq = []
 
         for i, l in enumerate(lists):
-            if l[0]:
+            if l and l[0]:
                 heapq.heappush(self.min_pq, element(i, 0, l[0]))
 
     def hasNext(self) -> bool:
@@ -48,6 +48,26 @@ class Solution_23_Second_Variant:
 
 
 if __name__ == "__main__":
+    iterator = Solution_23_Second_Variant([[1, 5], [1, 2], [6]])
+    assert iterator.next() == 1
+    assert iterator.next() == 1
+    assert iterator.hasNext() == True
+    assert iterator.next() == 2
+    assert iterator.next() == 5
+    assert iterator.next() == 6
+    assert iterator.hasNext() == False
+
+    iterator = Solution_23_Second_Variant([[1], [2], [3]])
+    assert iterator.next() == 1
+    assert iterator.next() == 2
+    assert iterator.next() == 3
+
+    iterator = Solution_23_Second_Variant([])
+    assert iterator.hasNext() == False
+
+    iterator = Solution_23_Second_Variant([[]])
+    assert iterator.hasNext() == False
+
     iterator = Solution_23_Second_Variant([[1, 3], [2], [4, 5]])
     assert iterator.hasNext() == True
     assert iterator.next() == 1

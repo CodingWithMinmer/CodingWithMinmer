@@ -1,6 +1,6 @@
 from collections import Counter
 from random import randint
-from typing import List
+from typing import List, Dict
 
 import math
 
@@ -35,7 +35,7 @@ class Solution_398_Second_Variant:
 
 if __name__ == "__main__":
 
-    def test(nums: List[int]) -> dict[int:int]:
+    def test(nums: List[int]) -> Dict[int:int]:
         iterations = 10**5
         result = []
         picked_indices = Counter(

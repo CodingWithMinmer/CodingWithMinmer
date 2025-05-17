@@ -1,3 +1,5 @@
+from typing import Optional
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None, parent=None):
         self.val = val
@@ -8,26 +10,29 @@ class TreeNode:
 
 # LC: https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iii/
 # SOURCE: https://youtu.be/iaOceNnKIQQ?si=7DxL8DYk6jPmiVa3
-def least_common_ancestor(p: TreeNode, q: TreeNode) -> TreeNode:
-    """
-    Time Complexity: O(h), where 'h' is the height of the binary tree, which
-                     in the worst case is equal to the number of nodes in a
-                     skewed tree
-    Space Complexity: O(1)
-    """
+class Solution_1650:
+    def least_common_ancestor(
+        self, p: Optional[TreeNode], q: Optional[TreeNode]
+    ) -> Optional[TreeNode]:
+        """
+        Time Complexity: O(h), where 'h' is the height of the binary tree, which
+                        in the worst case is equal to the number of nodes in a
+                        skewed tree
+        Space Complexity: O(1)
+        """
 
-    node_one = p
-    node_two = q
+        node_one = p
+        node_two = q
 
-    while node_one != node_two:
-        node_one = node_one.parent if node_one.parent else q
-        node_two = node_two.parent if node_two.parent else p
+        while node_one != node_two:
+            node_one = node_one.parent if node_one.parent else q
+            node_two = node_two.parent if node_two.parent else p
 
-    return node_one
+        return node_one
 
 
 if __name__ == "__main__":
-    """
+    r"""
                 0
                /
               1
@@ -67,6 +72,6 @@ if __name__ == "__main__":
     node4.right = node6
     node6.parent = node4
 
-    assert least_common_ancestor(node0, node1) == node0
-    assert least_common_ancestor(node4, node5) == node1
-    assert least_common_ancestor(node5, node6) == node1
+    assert Solution_1650().least_common_ancestor(node0, node1) == node0
+    assert Solution_1650().least_common_ancestor(node4, node5) == node1
+    assert Solution_1650().least_common_ancestor(node5, node6) == node1

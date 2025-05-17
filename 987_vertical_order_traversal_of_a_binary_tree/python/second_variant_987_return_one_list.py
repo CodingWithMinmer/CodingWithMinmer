@@ -1,4 +1,5 @@
 from collections import deque
+from typing import Dict, Optional, List, Tuple
 
 
 class TreeNode:
@@ -11,8 +12,11 @@ class TreeNode:
 # VARIANT: What if you had to return the sorted nodes in a single list?
 # SOURCE: https://youtu.be/m19-r7hswx0?si=kweP2QlIq61tcQ0o&t=1778
 class Solution_987_Second_Variant:
+
     def level_order_traversal(
-        self, root: TreeNode, col_to_node_and_row: dict[int, tuple[TreeNode, int]]
+        self,
+        root: Optional[TreeNode],
+        col_to_node_and_row: Dict[int, Tuple[Optional[TreeNode], int]],
     ):
         leftmost_col = rightmost_col = 0
         queue = deque([(0, 0, root)])
@@ -36,7 +40,7 @@ class Solution_987_Second_Variant:
 
         return (leftmost_col, rightmost_col)
 
-    def vertical_traversal(self, root: TreeNode) -> list[list[int]]:
+    def vertical_traversal(self, root: Optional[TreeNode]) -> List[List[int]]:
         """
         Time Complexity: O (N.log(N/C)), where C is the number of columns
         Space Complexity: O(N)

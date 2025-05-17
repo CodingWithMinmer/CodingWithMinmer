@@ -4,7 +4,7 @@ from typing import List, Tuple
 
 # VARIANT: What if you had to return the city that a person lives in?
 # SOURCE: https://youtu.be/cw826XIOZIg?si=q8X8SWsaFjIK5d3O&t=631
-class SolutionVariant528:
+class Solution_528_Variant:
     def __init__(self, populations: List[Tuple[int, int]]) -> None:
         self.prefix_sums = []
 
@@ -18,6 +18,7 @@ class SolutionVariant528:
     def pick_index(self, generated_person: int | None) -> int:
         """
         Time Complexity: O(log n)
+        Space Complexity: O(n)
         """
         if generated_person is None:
             person = randint(0, self.prefix_sums[-1][1] - 1)
@@ -38,7 +39,7 @@ class SolutionVariant528:
 if __name__ == "__main__":
 
     populations = [("US", 300), ("VN", 100), ("BR", 200)]
-    s = SolutionVariant528(populations)
+    s = Solution_528_Variant(populations)
     assert s.pick_index(0) == "US"
     assert s.pick_index(150) == "US"
     assert s.pick_index(299) == "US"

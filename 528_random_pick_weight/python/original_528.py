@@ -5,7 +5,7 @@ from typing import List
 
 # LC: https://leetcode.com/problems/random-pick-with-weight/
 # SOURCE: https://youtu.be/cw826XIOZIg?si=afCo0uhLC-s2b_Kd
-class Solution528:
+class Solution_528:
     def __init__(self, w: List[int]) -> None:
         self.prefix_sums = []
 
@@ -35,12 +35,13 @@ class Solution528:
 if __name__ == "__main__":
 
     def test(weights: List[int]) -> dict[int:int]:
-        iterations = 10**6
+        iterations = 10**5
         picked_indices = Counter(
-            [Solution528(weights).pick_index() for _ in range(iterations)]
+            [Solution_528(weights).pick_index() for _ in range(iterations)]
         ).items()
         probabilities = {weights[k]: v * 100.0 / iterations for k, v in picked_indices}
 
         return probabilities
 
-    print(f"Probabilities: {test([3, 5, 2])}")
+    print(f"Probabilities for [1]: {test([1])}")
+    print(f"Probabilities for [3, 5, 2]: {test([3, 5, 2])}")

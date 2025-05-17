@@ -1,5 +1,5 @@
-# LC: https://leetcode.com/problems/lru-cache/
-# SOURCE: https://youtu.be/LZgDpjCIHm0?si=Wx1HXUtfEvtjrx--
+from typing import Optional
+
 class Node:
     def __init__(self, key, val) -> None:
         self.key = key
@@ -8,6 +8,8 @@ class Node:
         self.right = None
 
 
+# LC: https://leetcode.com/problems/lru-cache/
+# SOURCE: https://youtu.be/LZgDpjCIHm0?si=Wx1HXUtfEvtjrx--
 class LRUCache_146:
     def __init__(self, capacity: int) -> None:
         self.capacity = capacity
@@ -18,6 +20,9 @@ class LRUCache_146:
         self.tail.left = self.head
 
     def get(self, key: int) -> int:
+        """
+        Time complexity: O(1)
+        """
         if key not in self.key_to_node:
             return -1
 
@@ -27,6 +32,9 @@ class LRUCache_146:
         return curr.val
 
     def put(self, key: int, value: int) -> None:
+        """
+        Time complexity: O(1)
+        """
         if key in self.key_to_node:
             curr = self.key_to_node[key]
             self.rewire_pointers(curr)
@@ -41,14 +49,14 @@ class LRUCache_146:
             self.rewire_pointers(node_to_delete)
             del self.key_to_node[node_to_delete.key]
 
-    def move_to_end(self, curr: Node) -> None:
+    def move_to_end(self, curr: Optional[Node]) -> None:
         previous_end = self.tail.left
         previous_end.right = curr
         curr.left = previous_end
         curr.right = self.tail
         self.tail.left = curr
 
-    def rewire_pointers(self, node: Node) -> None:
+    def rewire_pointers(self, node: Optional[Node]) -> None:
         node.left.right = node.right
         node.right.left = node.left
 
@@ -67,3 +75,14 @@ if __name__ == "__main__":
     assert obj.get(key=4) == 4
     obj.put(key=5, value=5)
     assert obj.get(key=1) == -1
+
+    obj = LRUCache_146(capacity=2)
+    obj.put(key=1, value=1)
+    obj.put(key=2, value=2)
+    assert obj.get(key=1) == 1
+    obj.put(key=3, value=3)
+    assert obj.get(key=2) == -1
+    obj.put(key=4, value=4)
+    assert obj.get(key=1) == -1
+    assert obj.get(key=3) == 3
+    assert obj.get(key=4) == 4

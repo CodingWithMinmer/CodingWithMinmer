@@ -1,5 +1,5 @@
 from collections import deque
-
+from typing import Dict, List, Optional, Tuple
 
 class TreeNode:
     def __init__(self, val) -> None:
@@ -11,8 +11,11 @@ class TreeNode:
 # LC: https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/description/
 # SOURCE: https://youtu.be/m19-r7hswx0?si=Bkm40xGihET9uioN
 class Solution_987:
+
     def level_order_traversal(
-        self, root: TreeNode, col_to_node_and_row: dict[int, tuple[TreeNode, int]]
+        self,
+        root: Optional[TreeNode],
+        col_to_node_and_row: Dict[int, Tuple[Optional[TreeNode], int]],
     ):
         leftmost_col = rightmost_col = 0
         queue = deque([(0, 0, root)])
@@ -36,7 +39,7 @@ class Solution_987:
 
         return (leftmost_col, rightmost_col)
 
-    def vertical_traversal(self, root: TreeNode) -> list[list[int]]:
+    def vertical_traversal(self, root: Optional[TreeNode]) -> List[List[int]]:
         """
         Time Complexity: O (N.log(N/C)), where C is the number of columns
         Space Complexity: O(N)

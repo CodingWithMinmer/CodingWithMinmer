@@ -1,3 +1,5 @@
+from typing import List
+
 # LC: https://leetcode.com/problems/group-shifted-strings/
 # SOURCE: https://youtu.be/uEOaAs-KY3M?si=058UUgbKtUjImD8m
 class Solution_249:
@@ -12,7 +14,7 @@ class Solution_249:
             key += chr(encoded_char)
         return key
 
-    def group_strings(self, strings: list[str]) -> list[list[str]]:
+    def group_strings(self, strings: List[str]) -> List[List[str]]:
         """
         Time Complexity: O(N * L)
         Space Complexity: O(N * L), where:

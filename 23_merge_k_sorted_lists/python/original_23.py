@@ -18,7 +18,7 @@ class element:
 
 # LC: https://leetcode.com/problems/merge-k-sorted-lists/
 # SOURCE: https://youtu.be/ewjDj_s1HVU?si=rOp3ylCviTY6h8U2
-class Solution:
+class Solution_23:
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
         """
         Time Complexity: O(N.log k)
@@ -43,6 +43,16 @@ class Solution:
 
 
 if __name__ == "__main__":
+
+    def test(lists: List[Optional[ListNode]]):
+        node = Solution_23().mergeKLists(lists)
+        result = []
+        while node:
+            result.append(node.val)
+            node = node.next
+
+        return result
+
     l1 = ListNode(1)
     l1.next = ListNode(2)
     l1.next.next = ListNode(4)
@@ -54,10 +64,18 @@ if __name__ == "__main__":
     l3 = ListNode(6)
     l4 = ListNode(7)
 
-    node = Solution().mergeKLists(lists=[l1, l2, l3, l4])
-    result = []
-    while node:
-        result.append(node.val)
-        node = node.next
+    assert test([l1, l2, l3, l4]) == [1, 2, 3, 4, 5, 6, 7, 10]
 
-    assert result == [1, 2, 3, 4, 5, 6, 7, 10]
+    l1 = ListNode(1)
+    l1.next = ListNode(4)
+    l1.next.next = ListNode(5)
+
+    l2 = ListNode(1)
+    l2.next = ListNode(3)
+    l2.next.next = ListNode(4)
+
+    l3 = ListNode(2)
+    l3.next = ListNode(6)
+    assert test([l1, l2, l3]) == [1, 1, 2, 3, 4, 4, 5, 6]
+    assert test([]) == []
+    assert test([[]]) == []

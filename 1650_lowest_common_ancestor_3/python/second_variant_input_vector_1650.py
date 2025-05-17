@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 
 
 class TreeNode:
@@ -11,33 +11,37 @@ class TreeNode:
 # VARIANT: What if you were given all the nodes as a part of a list/vector,
 #          and no longer the root node?
 # SOURCE: https://youtu.be/iaOceNnKIQQ?si=gHn2QoQ4nRBB2JXU&t=713
-def least_common_ancestor(
-    nodes: List[TreeNode], p: TreeNode | None, q: TreeNode | None
-) -> TreeNode:
-    """
-    Time Complexity: O(N), where 'N' is the number of nodes in the binary tree
-    Space Complexity: O(N)
-    """
+class Solution_1650_Variant:
+    def least_common_ancestor(
+        self,
+        nodes: List[Optional[TreeNode]],
+        p: Optional[TreeNode] | None,
+        q: Optional[TreeNode] | None,
+    ) -> Optional[TreeNode]:
+        """
+        Time Complexity: O(N), where 'N' is the number of nodes in the binary tree
+        Space Complexity: O(N)
+        """
 
-    child_to_parent = {}
-    for node in nodes:
-        if node.left:
-            child_to_parent[node.left] = node
-        if node.right:
-            child_to_parent[node.right] = node
+        child_to_parent = {}
+        for node in nodes:
+            if node.left:
+                child_to_parent[node.left] = node
+            if node.right:
+                child_to_parent[node.right] = node
 
-    node_one = p
-    node_two = q
+        node_one = p
+        node_two = q
 
-    while node_one != node_two:
-        node_one = child_to_parent[node_one] if node_one in child_to_parent else q
-        node_two = child_to_parent[node_two] if node_two in child_to_parent else p
+        while node_one != node_two:
+            node_one = child_to_parent[node_one] if node_one in child_to_parent else q
+            node_two = child_to_parent[node_two] if node_two in child_to_parent else p
 
-    return node_one
+        return node_one
 
 
 if __name__ == "__main__":
-    """
+    r"""
                 1
                / \
               2   3
@@ -67,8 +71,8 @@ if __name__ == "__main__":
     node6.right = node7
 
     nodes = [node1, node2, node4, node5, node6, node7, node3]
-    assert least_common_ancestor(nodes, node4, node7) == node2
-    assert least_common_ancestor(nodes, node3, node3) == node3
-    assert least_common_ancestor(nodes, node5, node6) == node5
-    assert least_common_ancestor(nodes, node5, node7) == node5
-    assert least_common_ancestor(nodes, node1, node2) == node1
+    assert Solution_1650_Variant().least_common_ancestor(nodes, node4, node7) == node2
+    assert Solution_1650_Variant().least_common_ancestor(nodes, node3, node3) == node3
+    assert Solution_1650_Variant().least_common_ancestor(nodes, node5, node6) == node5
+    assert Solution_1650_Variant().least_common_ancestor(nodes, node5, node7) == node5
+    assert Solution_1650_Variant().least_common_ancestor(nodes, node1, node2) == node1

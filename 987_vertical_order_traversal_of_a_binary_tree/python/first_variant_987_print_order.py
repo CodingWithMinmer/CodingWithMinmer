@@ -1,5 +1,5 @@
 from collections import deque
-
+from typing import Dict, Optional, List, Tuple
 
 class TreeNode:
     def __init__(self, val) -> None:
@@ -11,8 +11,11 @@ class TreeNode:
 # VARIANT: What if you had to print the order of nodes?
 # SOURCE: https://youtu.be/m19-r7hswx0?si=Jus1k2PFZVfeUn-v&t=1682
 class Solution_987_First_Variant:
+
     def level_order_traversal(
-        self, root: TreeNode, col_to_node_and_row: dict[int, tuple[TreeNode, int]]
+        self,
+        root: Optional[TreeNode],
+        col_to_node_and_row: Dict[int, Tuple[Optional[TreeNode], int]],
     ):
         leftmost_col = rightmost_col = 0
         queue = deque([(0, 0, root)])
@@ -36,7 +39,7 @@ class Solution_987_First_Variant:
 
         return (leftmost_col, rightmost_col)
 
-    def vertical_traversal(self, root: TreeNode) -> list[list[int]]:
+    def vertical_traversal(self, root: Optional[TreeNode]) -> List[List[int]]:
         """
         Time Complexity: O (N.log(N/C)), where C is the number of columns
         Space Complexity: O(N)
