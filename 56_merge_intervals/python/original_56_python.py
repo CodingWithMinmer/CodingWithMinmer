@@ -1,5 +1,6 @@
 from typing import List
 
+
 def merge_56_python(intervals: List[List[int]]) -> List[List[int]]:
     intervals.sort(key=lambda x: x[0])
 

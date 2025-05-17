@@ -1,5 +1,6 @@
 from typing import List
 
+
 def longestOnes_1004_python(nums: List[int], k: int) -> int:
     max_ = 0
     left = 0

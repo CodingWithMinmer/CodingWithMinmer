@@ -1,6 +1,7 @@
-from ...utils.treenode import TreeNode
-from typing import Optional
 from collections import deque
+from typing import Optional
+
+from ...utils.treenode import TreeNode
 
 
 class Solution:
