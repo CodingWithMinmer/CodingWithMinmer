@@ -23,6 +23,7 @@
 #include "348_design_tic_tac_toe_tests.cpp"
 #include "408_valid_word_abbreviation_tests.cpp"
 #include "19_remove_nth_node_from_end_tests.cpp"
+#include "1004_max_consecutive_ones_follow_up_tests.cpp"
 
 // UNKNOWNS
 #include "./unknowns/1_draw_circle_tests.cpp"

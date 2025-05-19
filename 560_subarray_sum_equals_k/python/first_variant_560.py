@@ -17,6 +17,7 @@ if __name__ == "__main__":
 
     # SubarraySum_FirstVariant True
     assert solution.subarraySumExists([1, 1, 1], 2) == True
+    assert solution.subarraySumExists([-1, 2, 3, -4], 0) == True
     assert solution.subarraySumExists([1, 2, 3, 1, 1, 1], 5) == True
     assert solution.subarraySumExists([1, 2, 3, 1, 1, 1], 9) == True
     assert solution.subarraySumExists([3, 4, 7, 2, -3, 1, 4, 2, 1, -14], 7) == True
