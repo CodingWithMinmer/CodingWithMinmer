@@ -3,7 +3,7 @@ class Solution:
         curr_lower = lower
         missing_ranges = []
         nums.append(upper + 1)
-        
+
         for num in nums:
             if num - curr_lower > 2:
                 missing_ranges.append(f"{curr_lower}-{num - 1}")
@@ -12,9 +12,9 @@ class Solution:
                 missing_ranges.append(str(curr_lower + 1))
             elif num - curr_lower == 1:
                 missing_ranges.append(str(curr_lower))
-            
+
             curr_lower = num + 1
-        
+
         return missing_ranges
 
 
