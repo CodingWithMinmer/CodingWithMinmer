@@ -1,18 +1,22 @@
 from typing import List
 def compute_running_sum_variant_346(nums: List[int], size: int) -> List[int]:
-    result = []
-    window_sum = 0
+    res  = []
+    windowSum = 0
+    count = 0
     for right in range(len(nums)):
-        window_sum += nums[right]
-
-        left = right - size
-        if left >= 0:
-            window_sum -= nums[left]
-
-        if right >= size - 1:
-            result.append(window_sum // size)
-
-    return result
+        left = right - size 
+        
+        if left > -1:
+            windowSum -= nums[left]
+        windowSum += nums[right]
+        
+        count += 1
+        if count > size-1:
+            res.append(windowSum // min(size,count))
+        print(f'left {left} windowSum {windowSum} res {res}')
+    print(res)
+    return res
+    
 
 if __name__ == '__main__':
     nums = [5, 2, 8, 14, 3]
@@ -42,6 +46,8 @@ if __name__ == '__main__':
     nums = [1, 2, 1, 2]
     size = 2
     assert compute_running_sum_variant_346(nums, size) == [1, 1, 1]
+
+    print("All test cases passed!")
 
 
 
