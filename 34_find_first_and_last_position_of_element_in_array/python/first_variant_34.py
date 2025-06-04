@@ -1,35 +1,32 @@
 class Solution:
     def countElements(self, nums: list[int], target: int) -> int:
-        if len(nums) == 0:
-            return 0
-        if target > nums[-1] or target < nums[0]:
-            return 0
-
-        def upper(arr, target):
-            left, right = 0, len(arr) - 1
-            while left <= right:
-                mid = (left + right) // 2
-                if arr[mid] <= target:
-                    left = mid + 1
+        def binarySearch(lowerSearch):
+            l = 0
+            r = len(nums)-1
+            n = len(nums)
+            while l <= r:
+                mid = (l+r) //2
+                
+                if nums[mid] > target:
+                    r  = mid -1
+                elif nums[mid] < target:
+                    l = mid +1
                 else:
-                    right = mid - 1
-            return right
+                    if lowerSearch:
+                        if mid == l or nums[mid-1] < target:
+                            return mid
+                        r = mid -1
+                    else:
 
-        def lower(arr, target):
-            left, right = 0, len(arr) - 1
-            while left <= right:
-                mid = (left + right) // 2
-                if arr[mid] >= target:
-                    right = mid - 1
-                else:
-                    left = mid + 1
-            return left
-
-        first = lower(nums, target)
-        if nums[first] != target:
-            return 0
-        last = upper(nums, target)
-        return last - first + 1
+                        if mid == r or nums[mid+1] > target:
+                            return mid
+                        l = mid +1
+                    
+            return -1
+        lower = binarySearch(True)
+        if lower == -1:  return 0
+        return binarySearch(False) - lower +1
+            
 
 if __name__ == "__main__":
     # Valid cases
@@ -110,3 +107,4 @@ if __name__ == "__main__":
     assert solution.countElements(nums, target) == 0
     target = 6
     assert solution.countElements(nums, target) == 0
+    print("All tests passed!!!")
