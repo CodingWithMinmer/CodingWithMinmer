@@ -25,6 +25,7 @@
 #include "19_remove_nth_node_from_end_tests.cpp"
 #include "1004_max_consecutive_ones_follow_up_tests.cpp"
 #include "339_nested_weight_list_sum_tests.cpp"
+#include "62_63_unique_paths_tests.cpp"
 
 // UNKNOWNS
 #include "./unknowns/1_draw_circle_tests.cpp"
