@@ -2,7 +2,7 @@ class Solution:
     def buildSecondLargestNumber(self, num: list[int]) -> list[int]:
         if not num or len(num) == 1:
             return []
-        
+
         freqs = [0 for _ in range(10)]
         for digit in num:
             freqs[digit] += 1
@@ -49,11 +49,60 @@ if __name__ == "__main__":
 
     # Duplicate Digits And Looped Swap
     assert solution.buildSecondLargestNumber([1, 2, 1, 1, 1]) == [1, 2, 1, 1, 1]
-    assert solution.buildSecondLargestNumber([5, 9, 7, 6, 6, 3, 9, 6, 6]) == [9, 9, 7, 6, 6, 6, 6, 3, 5]
-    assert solution.buildSecondLargestNumber([5, 9, 7, 6, 6, 3, 9, 6, 6, 3, 3]) == [9, 9, 7, 6, 6, 6, 6, 3, 5, 3, 3]
-    assert solution.buildSecondLargestNumber([4, 4, 4, 4, 9, 9, 9, 9, 9]) == [9, 9, 9, 9, 4, 9, 4, 4, 4]
+    assert solution.buildSecondLargestNumber([5, 9, 7, 6, 6, 3, 9, 6, 6]) == [
+        9,
+        9,
+        7,
+        6,
+        6,
+        6,
+        6,
+        3,
+        5,
+    ]
+    assert solution.buildSecondLargestNumber([5, 9, 7, 6, 6, 3, 9, 6, 6, 3, 3]) == [
+        9,
+        9,
+        7,
+        6,
+        6,
+        6,
+        6,
+        3,
+        5,
+        3,
+        3,
+    ]
+    assert solution.buildSecondLargestNumber([4, 4, 4, 4, 9, 9, 9, 9, 9]) == [
+        9,
+        9,
+        9,
+        9,
+        4,
+        9,
+        4,
+        4,
+        4,
+    ]
 
     # Zeroes
-    assert solution.buildSecondLargestNumber([0, 0, 0, 0, 0, 6, 0]) == [0, 6, 0, 0, 0, 0, 0]
+    assert solution.buildSecondLargestNumber([0, 0, 0, 0, 0, 6, 0]) == [
+        0,
+        6,
+        0,
+        0,
+        0,
+        0,
+        0,
+    ]
     assert solution.buildSecondLargestNumber([0, 0, 1, 2, 3, 3]) == [3, 3, 2, 0, 1, 0]
-    assert solution.buildSecondLargestNumber([0, 0, 8, 4, 9, 9, 6, 7]) == [9, 9, 8, 7, 6, 0, 4, 0]
+    assert solution.buildSecondLargestNumber([0, 0, 8, 4, 9, 9, 6, 7]) == [
+        9,
+        9,
+        8,
+        7,
+        6,
+        0,
+        4,
+        0,
+    ]

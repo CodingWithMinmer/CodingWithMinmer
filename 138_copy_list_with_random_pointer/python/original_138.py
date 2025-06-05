@@ -1,5 +1,6 @@
 from typing import Optional
 
+
 class Solution:
     class Node:
         def __init__(self, x: int, next: "Node" = None, random: "Node" = None):

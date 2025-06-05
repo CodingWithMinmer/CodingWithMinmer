@@ -1,5 +1,6 @@
 from queue import Queue
 
+
 class MovingAverage_346:
     def __init__(self, size: int):
         self.size = size
