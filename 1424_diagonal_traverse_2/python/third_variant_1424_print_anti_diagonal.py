@@ -17,6 +17,8 @@ def third_variant_1424_print_anti_diagonal(nums):
         print('\n')
         
 
+#Time Complexity  - O(N)
+#Space Complexity - O(1)
 
 if __name__ == '__main__':   
     nums = [[1,2,3],[4,5,6],[7,8,9]]
