@@ -22,7 +22,7 @@ class Solution:
         count =0
         
         while start < n:
-            end = upper(end,nums[start])
+            end = upper(end,nums[start]) # start from end instead of 0
             start = end+1
             count +=1
         return count

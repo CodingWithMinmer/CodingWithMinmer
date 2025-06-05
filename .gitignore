@@ -32,5 +32,8 @@ build/CMakeFiles/3.31.2/CompilerIdCXX/CMakeCXXCompilerId.cpp
 build/Testing/Temporary/CTestCostData.txt
 build/Testing/Temporary/LastTest.log
 
+1091_shortest_path_in_binary_matrix/python/second_variant_1091_return_single_path.py
+.gitignore
 # Python related
 __pycache__
+
