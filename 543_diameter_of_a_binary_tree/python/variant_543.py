@@ -1,35 +1,64 @@
 from typing import Optional, List
-
-class Node:
-    def __init__(self, val: Optional[int] = None, children: Optional[List['Node']] = None):
-        self.val = val
-        self.children = children if children is not None else []
+from utils.N_arryTree import N_arryTree
 
 class Solution:
-    def diameter(self, root: 'Node') -> int:
-        """
-        :type root: 'Node'
-        :rtype: int
-        """
-        diameter = 0
+    def diameter(self, root: 'N_arryTree') -> int:
+       
+        longetDiameter = 0
 
-        def longest_path(node: 'Node'):
-            if node is None:
-                return 0
-
-            max_height = 0
-            second_max_height = 0
+        def dfs(node: 'N_arryTree'):
+            
+            # print(f'cur {node.val}')
+            localDiameter = 0
             for child in node.children:
-                height = longest_path(child)
-                if height > max_height:
-                    second_max_height = max_height
-                    max_height = height
-                elif height > second_max_height:
-                    second_max_height = height
-            nonlocal diameter
-            diameter = max(diameter, max_height + second_max_height)
-            return max_height + 1
 
-        longest_path(root)
+                localDiameter = max(dfs(child),localDiameter)
 
-        return diameter
+            
+            nonlocal longetDiameter
+            longetDiameter = max(longetDiameter,localDiameter+1)
+            print(localDiameter,node.val)
+            return localDiameter +1
+
+        dfs(root)
+
+        return longetDiameter
+    
+
+if __name__ == '__main__':
+    root = N_arryTree(1)
+    n2 = N_arryTree(2)
+    n3 = N_arryTree(3)
+    root.children=[n2,n3]
+
+    n4= N_arryTree(4)
+    n5= N_arryTree(5)
+    n2.children= [n4,n5]
+
+    n6 = N_arryTree(6)
+    n7 = N_arryTree(7)
+    n8 = N_arryTree(8)
+    n9 = N_arryTree(9)
+    n5.children =[n6,n7,n8,n9]
+
+    n10 = N_arryTree(10)
+    n11 = N_arryTree(11)
+    n12 = N_arryTree(12)
+
+    n13 = N_arryTree(13)
+    n14 = N_arryTree(14)
+    n15 = N_arryTree(15)
+    n16 = N_arryTree(16)
+
+    n10.children = [n14]
+
+    n8.children = [n11,n12]
+    n9.children = [n13]
+    n13.children = [n15]
+    n15.children = [n16]
+
+    res = Solution().diameter(root)
+    assert res == 7, print(res)
+
+    print('All Test Passed!!!')
+
