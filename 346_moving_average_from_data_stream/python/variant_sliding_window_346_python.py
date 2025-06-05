@@ -13,8 +13,7 @@ def compute_running_sum_variant_346(nums: List[int], size: int) -> List[int]:
         count += 1
         if count > size-1:
             res.append(windowSum // min(size,count))
-        print(f'left {left} windowSum {windowSum} res {res}')
-    print(res)
+        
     return res
     
 
