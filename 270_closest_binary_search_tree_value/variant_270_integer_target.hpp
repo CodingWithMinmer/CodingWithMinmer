@@ -1,5 +1,6 @@
 #pragma once
 
+#include <climits>
 #include "../utils/Node.hpp"
 
 // VARIANT: What if the target parameter was given as an integer, not a double?
