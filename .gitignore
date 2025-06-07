@@ -33,7 +33,8 @@ build/Testing/Temporary/CTestCostData.txt
 build/Testing/Temporary/LastTest.log
 
 1091_shortest_path_in_binary_matrix/python/second_variant_1091_return_single_path.py
-.gitignore
+1004_max_consecutive_ones_3/python/second_variant_1004_python.py
+
 # Python related
 __pycache__
 
