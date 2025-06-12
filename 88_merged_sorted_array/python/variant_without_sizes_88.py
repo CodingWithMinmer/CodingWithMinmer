@@ -3,7 +3,7 @@ class Solution:
         a = len(nums1) // 2 - 1
         b = len(nums2) - 1
         i = len(nums1) - 1
-        
+
         while b >= 0:
             if a >= 0 and nums1[a] >= nums2[b]:
                 nums1[i] = nums1[a]
@@ -12,6 +12,7 @@ class Solution:
                 nums1[i] = nums2[b]
                 b -= 1
             i -= 1
+
 
 if __name__ == "__main__":
     solution = Solution()

@@ -1,4 +1,6 @@
 from typing import List
+
+
 def compute_running_sum_variant_346(nums: List[int], size: int) -> List[int]:
     result = []
     window_sum = 0
@@ -14,7 +16,8 @@ def compute_running_sum_variant_346(nums: List[int], size: int) -> List[int]:
 
     return result
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     nums = [5, 2, 8, 14, 3]
     size = 3
     assert compute_running_sum_variant_346(nums, size) == [5, 8, 8]
@@ -33,7 +36,9 @@ if __name__ == '__main__':
 
     nums = [2, 4, 6, 8, 10, 12]
     size = 6
-    assert compute_running_sum_variant_346(nums, size) == [(2+4+6+8+10+12)/size]
+    assert compute_running_sum_variant_346(nums, size) == [
+        (2 + 4 + 6 + 8 + 10 + 12) / size
+    ]
 
     nums = [1, 2, 3, 4, 5]
     size = 4
@@ -42,7 +47,3 @@ if __name__ == '__main__':
     nums = [1, 2, 1, 2]
     size = 2
     assert compute_running_sum_variant_346(nums, size) == [1, 1, 1]
-
-
-
-

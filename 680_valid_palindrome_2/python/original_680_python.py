@@ -1,4 +1,3 @@
-
 def validPalindrome(s: str) -> bool:
     def check_remaining(s, left, right):
         while left < right:
@@ -18,7 +17,8 @@ def validPalindrome(s: str) -> bool:
             right -= 1
             continue
 
-        return check_remaining(s, left, right - 1) or check_remaining(s, left + 1, right)
+        return check_remaining(s, left, right - 1) or check_remaining(
+            s, left + 1, right
+        )
 
     return True
-
