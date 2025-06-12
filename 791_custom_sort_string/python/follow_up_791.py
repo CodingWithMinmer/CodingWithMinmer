@@ -3,7 +3,6 @@ class Solution:
         vector_space = [0] * 26
         for c in s:
             vector_space[ord(c)-ord('a')] +=1 
-        print(vector_space)
         result =[]
         for c in order:
             key = ord(c)-ord('a')
