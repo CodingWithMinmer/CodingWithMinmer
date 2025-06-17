@@ -24,11 +24,16 @@
 #include "408_valid_word_abbreviation_tests.cpp"
 #include "19_remove_nth_node_from_end_tests.cpp"
 #include "1004_max_consecutive_ones_follow_up_tests.cpp"
+#include "339_nested_weight_list_sum_tests.cpp"
+#include "62_63_unique_paths_tests.cpp"
+#include "605_can_place_flowers_tests.cpp"
+#include "896_monotonic_array_tests.cpp"
 
 // UNKNOWNS
 #include "./unknowns/1_draw_circle_tests.cpp"
 #include "./unknowns/2_skip_list_tests.cpp"
 #include "./unknowns/2_skip_list_variant_tests.cpp"
+#include "./unknowns/3_digitsums_tests.cpp"
 
 int main(int argc, char **argv)
 {
