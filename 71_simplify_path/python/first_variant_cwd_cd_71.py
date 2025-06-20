@@ -1,31 +1,23 @@
 class Solution:
     def changeDirectory(self, cwd: str, cd: str) -> str:
-        if not cd:
-            return cwd
         
+        if not cd: return cwd
         if cd[0] == '/':
             cwd = ''
+        relativePaths = ['..','','.']
+        dirPath = []
+
+        for p in cwd.split('/'):
+            if p not in relativePaths:
+                dirPath.append(p)
+
+        for p in cd.split('/'):
+            if not p in relativePaths:
+                dirPath.append(p)
+            if p == '..' and dirPath:
+                dirPath.pop()
         
-        tokens = []
-        for token in cwd.split('/'):
-            if token:
-                tokens.append(token)
-        
-        for token in cd.split('/'):
-            if not token:
-                continue
-            if token == '.':
-                continue
-            elif token == '..':
-                if tokens:
-                    tokens.pop()
-            else:
-                tokens.append(token)
-        
-        if not tokens:
-            return '/'
-        
-        return '/' + '/'.join(tokens)
+        return '/'+'/'.join(dirPath)
 
 if __name__ == "__main__":
     solution = Solution()
@@ -41,3 +33,4 @@ if __name__ == "__main__":
     assert solution.changeDirectory("/x/y", "/p/./q") == "/p/q"
     assert solution.changeDirectory("/facebook/anin", "../abc/def") == "/facebook/abc/def"
     assert solution.changeDirectory("/facebook/instagram", "../../../../.") == "/"
+    print('All Test Passed!!!')
