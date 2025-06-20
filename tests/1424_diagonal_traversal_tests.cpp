@@ -85,9 +85,34 @@ TEST(DiagonalTraverse2_FirstVariant_PrintAntiDiagonal, SingleRow) {
     std::vector<std::vector<int>> expected = {{1}, {2}, {3}, {4}, {5}, {6}};
     EXPECT_EQ(expected, findAntiDiagonalOrder_1424_first_variant(nums));
 }
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+// VARIANT: print out the anti-diagonal order
+
+TEST(DiagonalTraverse2_FirstVariant_PrintAntiDiagonal, HalfMatrix) {
+    std::vector<std::vector<int>> nums = {
+        {1, 3, 6},
+        {2, 5},
+        {4}
+    };
+    
+    std::vector<int> expected = {4, 2, 5, 1, 3, 6};
+    
+    EXPECT_EQ(expected,  findAntiDiagonalOrder_1424_first_variant_2(nums));
+}
+
+TEST(DiagonalTraverse_FirstVariant_PrintAntiDiagonal, FullMatrix) {
+    std::vector<std::vector<int>> nums = {
+        {1, 3, 6},
+        {2, 5, 8},
+        {4, 7, 9}
+    };
+    std::vector<int> expected = {4, 7, 2, 9, 5, 1, 8, 3, 6};
+
+    EXPECT_EQ(expected, findAntiDiagonalOrder_1424_first_variant_2(nums));
+}
 
 //////////////////////////////////////////////////////////////////////////////////////////
-TEST(DiagonalTraverse2_SecondVariant_PrintAntiDiagonal, FullMatrix) {
+TEST(DiagonalTraverse_SecondVariant_PrintAntiDiagonal, FullMatrix) {
     std::vector<std::vector<int>> nums = {
         {1, 3, 6},
         {2, 5, 8},
@@ -117,3 +142,6 @@ TEST(DiagonalTraverse2_SecondVariant_PrintAntiDiagonal, SingleRow) {
     };
     findAntiDiagonalOrder_1424_second_variant(nums);
 }
+
+
+
