@@ -1,19 +1,23 @@
-from typing import Optional, List
+from typing import List, Optional
+
 
 class Node:
-    def __init__(self, val: Optional[int] = None, children: Optional[List['Node']] = None):
+    def __init__(
+        self, val: Optional[int] = None, children: Optional[List["Node"]] = None
+    ):
         self.val = val
         self.children = children if children is not None else []
 
+
 class Solution:
-    def diameter(self, root: 'Node') -> int:
+    def diameter(self, root: "Node") -> int:
         """
         :type root: 'Node'
         :rtype: int
         """
         diameter = 0
 
-        def longest_path(node: 'Node'):
+        def longest_path(node: "Node"):
             if node is None:
                 return 0
 
