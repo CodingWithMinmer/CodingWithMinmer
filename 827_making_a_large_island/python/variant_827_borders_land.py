@@ -1,6 +1,8 @@
 from typing import List
+import pytest
 
-class Solution827:
+
+class Solution827Variant:
     def __init__(self):
         self.directions = [(-1, 0), (0, 1), (1, 0), (0, -1)]
 
@@ -47,3 +49,125 @@ class Solution827:
                 largest = max(largest, self.create_island(grid, visited, row, col))
         
         return largest
+    
+
+
+
+class TestMakingLargeIslandVariant:
+
+    def setup_method(self):
+        self.s = Solution827Variant()
+
+    def test_no_land_makes_largest_of_matrix(self):
+        grid = [
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+        ]
+        assert self.s.largestIsland(grid) == 20
+
+        grid = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+        assert self.s.largestIsland(grid) == 16
+
+        grid = [
+            [0],
+            [0],
+            [0],
+            [0],
+            [0]
+        ]
+        assert self.s.largestIsland(grid) == 5
+
+        grid = [[0]]
+        assert self.s.largestIsland(grid) == 1
+
+    def test_all_land_makes_zero_area_island(self):
+        grid = [
+            [1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1],
+        ]
+        assert self.s.largestIsland(grid) == 0
+
+        grid = [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]]
+        assert self.s.largestIsland(grid) == 0
+
+        grid = [
+            [1],
+            [1],
+            [1],
+            [1],
+            [1]
+        ]
+        assert self.s.largestIsland(grid) == 0
+
+        grid = [[1]]
+        assert self.s.largestIsland(grid) == 0
+
+    def test_hybrid_land_water_still_cannot_create_island(self):
+        grid = [
+            [0, 1, 0, 1, 0],
+            [0, 0, 0, 0, 0],
+            [1, 1, 1, 1, 1],
+            [0, 0, 0, 0, 0],
+        ]
+        assert self.s.largestIsland(grid) == 0
+
+        grid = [[0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]]
+        assert self.s.largestIsland(grid) == 0
+
+        grid = [
+            [1],
+            [0],
+            [1],
+            [0],
+            [1]
+        ]
+        assert self.s.largestIsland(grid) == 0
+
+        grid = [
+            [0, 0, 0, 1, 1],
+            [1, 1, 0, 1, 1],
+            [0, 1, 0, 1, 1],
+            [0, 1, 0, 0, 0],
+        ]
+        assert self.s.largestIsland(grid) == 0
+
+    def test_hybrid_creates_island(self):
+        grid = [
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 1, 1, 1],
+            [0, 0, 1, 1, 1],
+        ]
+        assert self.s.largestIsland(grid) == 9
+
+        grid = [
+            [0, 0, 0, 1, 1],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 1, 1],
+        ]
+        assert self.s.largestIsland(grid) == 10
+
+        grid = [
+            [1, 0, 0, 0, 1],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+            [1, 0, 0, 0, 1],
+        ]
+        assert self.s.largestIsland(grid) == 8
+
+        grid = [[1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+        assert self.s.largestIsland(grid) == 10
+
+        grid = [
+            [0],
+            [0],
+            [0],
+            [1],
+            [1]
+        ]
+        assert self.s.largestIsland(grid) == 2
