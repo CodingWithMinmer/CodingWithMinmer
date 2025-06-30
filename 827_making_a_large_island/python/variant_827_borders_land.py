@@ -6,51 +6,34 @@ class Solution827Variant:
     def __init__(self):
         self.directions = [(-1, 0), (0, 1), (1, 0), (0, -1)]
 
-    def borders_land(self, grid, row, col):
-        for r_offset, c_offset in self.directions:
-            new_row, new_col = row + r_offset, col + c_offset
-            if new_row < 0 or new_row >= len(grid):
-                continue
-            if new_col < 0 or new_col >= len(grid[0]):
-                continue
-            if grid[new_row][new_col] == 0:
-                continue
 
-            return True
+    def border_island(self,grid,r,c):
+        for dr,dc in self.directions:
+            nr,nc = dr+r,dc+c
+            if -1 < nr < self.m and -1 < nc < self.n  and grid[nr][nc] == 1:
+                return True
         return False
-
-    def create_island(self, grid, visited, row, col):
-        visited[row][col] = True
+    
+    def islandCounter(self,grid,r,c):
+        self.visited.add((r,c))
         size = 1
-        for r_offset, c_offset in self.directions:
-            new_row, new_col = row + r_offset, col + c_offset
-            if new_row < 0 or new_row >= len(grid):
-                continue
-            if new_col < 0 or new_col >= len(grid[0]):
-                continue
-            if visited[new_row][new_col]:
-                continue
-            if self.borders_land(grid, new_row, new_col):
-                continue
-            size += self.create_island(grid, visited, new_row, new_col)
+        for dr,dc in self.directions:
+            nr,nc = dr+r,dc+c
+            if -1 < nr < self.m and -1 < nc < self.n and not (nr,nc) in self.visited and not self.border_island(grid,nr,nc) and grid[nr][nc] == 0: 
+                size += self.islandCounter(grid,nr,nc)
         return size
-    
-    def largestIsland(self, grid: List[List[int]]) -> int:
-        visited = [[False for _ in range(len(grid[0]))] for _ in range(len(grid))]
-        largest = 0
-        for row in range(len(grid)):
-            for col in range(len(grid[0])):
-                if grid[row][col] == 1:
-                    continue
-                if visited[row][col]:
-                    continue
-                if self.borders_land(grid, row, col):
-                    continue
-                largest = max(largest, self.create_island(grid, visited, row, col))
-        
-        return largest
-    
 
+
+    def largestIsland(self, grid: List[List[int]]) -> int:
+        self.m,self.n = len(grid),len(grid[0])
+        self.visited = set()
+        largest = 0
+        for i in range(self.m):
+            for j in range(self.n):
+                if -1 < i < self.m and -1 < j < self.n and grid[i][j] == 0 and not (i,j) in self.visited  and not self.border_island(grid,i,j):
+                    largest = max(largest,self.islandCounter(grid,i,j))
+        return largest
+        
 
 
 class TestMakingLargeIslandVariant:
