@@ -1,26 +1,30 @@
+
 class Solution:
     def countUnique(self, nums: list[int]) -> int:
-        # Should run in O(k * log(N)) complexity, where k is # of unique elements
-        if len(nums) == 0:
-            return 0
+        n = len(nums)
+        def upper(l,target):
+            r = n
+            while l <= r:
+                mid = (l+r) //2
+                if nums[mid] == target:
+                    
+                    if mid == n-1 or nums[mid+1] > target:
+                        return mid
+                    l = mid +1
 
-        def upper(arr, target):
-            left, right = 0, len(arr) - 1
-            while left <= right:
-                mid = (left + right) // 2
-                if arr[mid] <= target:
-                    left = mid + 1
+                elif nums[mid] > target:
+                    r = mid -1
                 else:
-                    right = mid - 1
-            return right
-
-        start = 0
-        count = 0
-        while start < len(nums):
-            end = upper(nums, nums[start])
-            start = end + 1
-            count += 1
-
+                    l = mid +1                                        
+            return -1
+        
+        start= end= 0
+        count =0
+        
+        while start < n:
+            end = upper(end,nums[start]) # start from end instead of 0
+            start = end+1
+            count +=1
         return count
 
 
@@ -49,3 +53,4 @@ if __name__ == "__main__":
     # Zero Count case
     nums = []
     assert solution.countUnique(nums) == 0
+    print("All tests passed!")
