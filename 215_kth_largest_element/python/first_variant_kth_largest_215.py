@@ -1,4 +1,5 @@
-from heapq import heappush, heappop
+from heapq import heappop, heappush
+
 
 class Solution:
     def findKthPluseOneLargest(self, nums: list[int], k: int) -> int:
@@ -11,6 +12,7 @@ class Solution:
             if len(min_heap) > k:
                 heappop(min_heap)
         return min_heap[0]
+
 
 if __name__ == "__main__":
     solution = Solution()
@@ -26,11 +28,11 @@ if __name__ == "__main__":
     assert solution.findKthPluseOneLargest(nums, k) == 2
     k = 4
     assert solution.findKthPluseOneLargest(nums, k) == 1
-    
+
     nums = [1]
     k = 0
     assert solution.findKthPluseOneLargest(nums, k) == 1
-    
+
     # Out of range indices
     nums = [1, 2, 3, 4, 5]
     try:
@@ -60,7 +62,7 @@ if __name__ == "__main__":
         assert False, "Expected an out_of_range exception"
     except AssertionError:
         pass
-    
+
     k = 1
     try:
         solution.findKthPluseOneLargest(nums, k)
