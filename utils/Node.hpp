@@ -17,6 +17,8 @@ public:
 
     Node(int val) : val(val), left(nullptr), right(nullptr), next(nullptr), parent(nullptr) {}
 
+    Node(int val, Node* _next) : val(val), next(_next) {}
+
     Node(int _val, Node* _left, Node* _right, Node* _next)
             : val(_val), left(_left), right(_right), next(_next) {}
 };

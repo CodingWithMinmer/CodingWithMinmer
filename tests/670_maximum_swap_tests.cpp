@@ -76,6 +76,10 @@ TEST(MaximumSwap_Variant_BuildSecondLargest, DuplicateDigitsAndLoopedSwap) {
     num = {4, 4, 4, 4, 9, 9, 9, 9, 9};
     expected = {9, 9, 9, 9, 4, 9, 4, 4, 4};
     EXPECT_EQ(expected, get_second_largest_number_670(num));
+
+    num = {9, 9, 7, 6, 6, 6, 6, 5, 3, 3, 3};
+    expected = {9, 9, 7, 6, 6, 6, 6, 3, 5, 3, 3};
+    EXPECT_EQ(expected, get_second_largest_number_670(num));
 }
 
 TEST(MaximumSwap_Variant_BuildSecondLargest, Zeroes) {
