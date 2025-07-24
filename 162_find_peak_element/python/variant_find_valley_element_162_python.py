@@ -4,8 +4,9 @@ def findValleyElement(nums):
     while left <= right:
         mid = (right - left) // 2 + left
 
-        if (mid == len(nums) - 1 or nums[mid + 1] > nums[mid]) and \
-           (mid == 0 or nums[mid - 1] > nums[mid]):
+        if (mid == len(nums) - 1 or nums[mid + 1] > nums[mid]) and (
+            mid == 0 or nums[mid - 1] > nums[mid]
+        ):
             return mid
 
         if nums[mid + 1] < nums[mid]:
@@ -14,6 +15,7 @@ def findValleyElement(nums):
             right = mid - 1
 
     return -1  # Unreachable
+
 
 if __name__ == "__main__":
     nums = [1, 2, 3, 1]

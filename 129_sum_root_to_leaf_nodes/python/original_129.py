@@ -2,6 +2,7 @@ from typing import Optional
 
 from ...utils.treenode import TreeNode
 
+
 class Solution:
     def sumNumbers(self, root: Optional[TreeNode]) -> int:
         def preorder(node: TreeNode, curr_number: int):

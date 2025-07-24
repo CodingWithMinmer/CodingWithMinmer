@@ -1,5 +1,6 @@
 from collections import defaultdict
 
+
 class Solution:
     def accountsMerge(self, accounts):
         def dfs_variant_721(adjs, email_to_id, visited, curr_email, id):
@@ -57,7 +58,7 @@ if __name__ == "__main__":
         "C4": ["d"],
         "C5": ["e"],
         "C6": ["c"],
-        "C7": ["a"]
+        "C7": ["a"],
     }
     result = solution.accountsMerge(input_data)
     assert len(result) == 3
@@ -73,7 +74,7 @@ if __name__ == "__main__":
         "ID4": ["dd@gmail.com"],
         "ID5": ["ee@gmail.com"],
         "ID6": ["cc@gmail.com"],
-        "ID7": ["aa@gmail.com"]
+        "ID7": ["aa@gmail.com"],
     }
     result = solution.accountsMerge(input_data)
     assert len(result) == 3
@@ -89,7 +90,7 @@ if __name__ == "__main__":
         "C4": ["g"],
         "C5": ["h"],
         "C6": ["i"],
-        "C7": ["j", "k", "l", "m", "n"]
+        "C7": ["j", "k", "l", "m", "n"],
     }
     result = solution.accountsMerge(input_data)
     assert len(result) == 7
@@ -109,7 +110,7 @@ if __name__ == "__main__":
         "C4": ["a"],
         "C5": ["a"],
         "C6": ["a"],
-        "C7": ["j", "a", "l", "m", "n"]
+        "C7": ["j", "a", "l", "m", "n"],
     }
     result = solution.accountsMerge(input_data)
     assert len(result) == 1
@@ -123,24 +124,20 @@ if __name__ == "__main__":
         "C4": ["a", "x", "y", "z"],
         "C5": ["a"],
         "C6": ["a", "o", "p", "b"],
-        "C7": ["j", "a", "l", "m", "n"]
+        "C7": ["j", "a", "l", "m", "n"],
     }
     result = solution.accountsMerge(input_data)
     assert len(result) == 1
     assert sorted(result[0]) == sorted(["C6", "C1", "C5", "C3", "C7", "C2", "C4"])
 
     # One Id One Email
-    input_data = {
-        "C1": ["a"]
-    }
+    input_data = {"C1": ["a"]}
     result = solution.accountsMerge(input_data)
     assert len(result) == 1
     assert sorted(result[0]) == sorted(["C1"])
 
     # One Id Multiple Emails
-    input_data = {
-        "C1": ["a@gmail.com", "b@gmail.com", "c@gmail.com"]
-    }
+    input_data = {"C1": ["a@gmail.com", "b@gmail.com", "c@gmail.com"]}
     result = solution.accountsMerge(input_data)
     assert len(result) == 1
     assert sorted(result[0]) == sorted(["C1"])
@@ -149,11 +146,10 @@ if __name__ == "__main__":
     input_data = {
         "C1": ["a", "b", "c", "d"],
         "C2": ["q", "r", "s", "t"],
-        "C10": ["x", "y", "z"]
+        "C10": ["x", "y", "z"],
     }
     result = solution.accountsMerge(input_data)
     assert len(result) == 3
     assert sorted(result[0]) == sorted(["C1"])
     assert sorted(result[1]) == sorted(["C2"])
     assert sorted(result[2]) == sorted(["C10"])
-
