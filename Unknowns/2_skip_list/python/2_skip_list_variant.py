@@ -1,5 +1,6 @@
 from typing import Optional
 
+
 class Node:
     def __init__(self, val):
         self.val = val
@@ -8,8 +9,9 @@ class Node:
         self.top = None
         self.bottom = None
 
+
 class SkipList:
-    def search_closest(self, root: Optional['Node'], target: int) -> Optional['Node']:
+    def search_closest(self, root: Optional["Node"], target: int) -> Optional["Node"]:
         if root is None:
             return None
         if root.val == target:

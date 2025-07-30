@@ -31,6 +31,7 @@ class Solution:
         last = upper(nums, target)
         return last - first + 1
 
+
 if __name__ == "__main__":
     # Valid cases
     solution = Solution()
