@@ -1,7 +1,5 @@
-import heapq
+import heapq,unittest
 
-# FOLLOW-UP: What if the order in the output array mattered? It should be sorted in ascending order
-# In the case of a tiebreak (of equal digit sums), prioritize the number with the lower index
 class KthSmallestDigitSumsFollowup:
     def compute(self, num):
         digit_sum = 0
@@ -15,9 +13,9 @@ class KthSmallestDigitSumsFollowup:
 
         for index, num in enumerate(nums):
             digit_sum = self.compute(num)
-            heapq.heappush(max_heap, (-digit_sum, -index, num))
+            heapq.heappush(max_heap,(-digit_sum,-index,num))
 
-            if len(max_heap) > k:
+            if len(max_heap)>k:
                 heapq.heappop(max_heap)
 
         result = []
@@ -26,3 +24,24 @@ class KthSmallestDigitSumsFollowup:
             result.append(num)
         result.reverse()
         return result
+    
+class TestUnknownDigitSums(unittest.TestCase):
+    # # --- Tests for KthSmallestDigitSumsFollowup (Tiebreaker) ---
+
+    def test_tiebreaker(self):
+        nums = [9, 222, 402, 99, 123]
+        s = KthSmallestDigitSumsFollowup()
+
+        self.assertEqual([222], s.kth_smallest_digit_sums(nums, 1))
+        self.assertEqual([222, 402], s.kth_smallest_digit_sums(nums, 2))
+        self.assertEqual([222, 402, 123], s.kth_smallest_digit_sums(nums, 3))
+        self.assertEqual([222, 402, 123, 9], s.kth_smallest_digit_sums(nums, 4)) # 6,6,6,9
+        self.assertEqual([222, 402, 123, 9, 99], s.kth_smallest_digit_sums(nums, 5))
+
+        nums = [111, 84, 21, 12, 3, 56, 2001, 10000]
+        
+        expected = [10000, 111, 21]
+        self.assertEqual(expected, s.kth_smallest_digit_sums(nums, 3))
+
+if __name__ == '__main__':
+    unittest.main(argv=['first-arg-is-ignored'], exit=False)
