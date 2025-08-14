@@ -32,8 +32,13 @@
 #include "921_minimum_add_to_make_parentheses_valid/variant_921.hpp"
 #include "1_two_sum/second_variant_1_flip_dominoes.hpp"
 #include "1_two_sum/first_variant_1_return_true_or_false.hpp"
+#include <string.h>
 
 int main(int argc, char *argv[]) {
+    if (argc <= 1) {
+        printf("Please provide a variant name as an argument.\n");
+        return -1;
+    }
     if (!strcmp(argv[1], "1249_minimum_remove_to_make_valid_parentheses")) {
         minRemoveToMakeValid_Variant();
     }

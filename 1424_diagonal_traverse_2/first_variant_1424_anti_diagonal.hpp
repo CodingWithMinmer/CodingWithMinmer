@@ -27,3 +27,24 @@ std::vector<std::vector<int>> findAntiDiagonalOrder_1424_first_variant(std::vect
 
     return result;
 }
+
+std::vector<int> findAntiDiagonalOrder_1424_first_variant_2(std::vector<std::vector<int>>& nums)
+{
+    std::vector<int> result;
+    std::queue<std::pair<int, int>> q;
+    q.emplace(std::pair{nums.size()-1, 0});
+    while (!q.empty()) {
+        auto [row, col] = q.front();
+        result.push_back(nums[row][col]);
+        if (col+1 < nums[row].size())
+        {
+            q.push({row, col+1});
+        }
+        if (col == 0 && row - 1 >= 0)
+        {
+            q.push({row-1, col});
+        }
+        q.pop();
+    }
+    return result;
+}

@@ -3,6 +3,7 @@
 #include <cassert>
 #include <string>
 #include <unordered_set>
+#include <vector>
 
 // VARIANT: What if you could only consider a limited set of characters as a part of
 // a potential palindrome?
