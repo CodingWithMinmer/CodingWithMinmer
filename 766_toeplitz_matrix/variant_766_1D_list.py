@@ -1,16 +1,12 @@
 from typing import List
         
 class SolutionVariant:
-    def hasSameDiagonalValues(self, list: List[int], rows: int, cols: int) -> bool:
-        for i in range(len(list)):
+    def hasSameDiagonalValues(self, lst: List[int], rows: int, cols: int) -> bool:
+        for i in range(len(lst)):
             cr = i // cols
             cc = i % cols
-            if cr == rows - 1 or cc == cols - 1:
-                continue
-
-            if list[i] != list[i + (cols + 1)]:
-                return False
-
+            if cc < cols-1 and cr < rows -1:
+                if lst[i+cols+1] != lst[i]: return False
         return True
 
 class TestToeplitzVariant:
