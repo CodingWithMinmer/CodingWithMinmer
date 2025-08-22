@@ -1,26 +1,19 @@
 def remove_all_adjacent_duplicates_variant_1047_python(s):
-    letters = []
-    for ch in s:
-        if not letters:
-            letters.append({'val': ch, 'freq': 1})
-            continue
-        if letters[-1]['val'] == ch:
-            letters[-1]['freq'] += 1
-            continue
-
-        if letters[-1]['freq'] > 1:
-            letters.pop()
-
-        if not letters or letters[-1]['val'] != ch:
-            letters.append({'val': ch, 'freq': 1})
-        elif letters[-1]['val'] == ch:
-            letters[-1]['freq'] += 1
-
-    if letters and letters[-1]['freq'] > 1:
-        letters.pop()
-
-    result = ''.join([letter['val'] for letter in letters])
-    return result
+    stack = []
+    i = 0
+    n = len(s)
+    while i < len(s):
+        if stack and stack[-1] == s[i]:
+            c =  s[i]
+            while i < n and c == s[i]:
+                i += 1
+            stack.pop()
+            
+        else:
+            stack.append(s[i])
+            i+=1
+        
+    return ''.join(stack)
 
 if __name__ == '__main__':
     s = "azxxxzy"
@@ -49,3 +42,5 @@ if __name__ == '__main__':
 
     s = "abbbacca"; # Cannot pick and choose duplicates in the middle to delete first
     assert remove_all_adjacent_duplicates_variant_1047_python(s) == "a"
+
+    print("All tests passed!!!")

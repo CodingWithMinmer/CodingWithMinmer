@@ -2,28 +2,48 @@ from collections import deque
 
 class Solution:
     def canFinish(self, graph):
+        # numCourses = len(graph)
+        # indegrees = [0] * numCourses
+        # for sequels in graph:
+        #     for sequel in sequels:
+        #         indegrees[sequel] += 1
+
+        # queue = deque()
+        # for sequel in range(numCourses):
+        #     if indegrees[sequel] == 0:
+        #         queue.append(sequel)
+
+        # visited = 0
+        # while queue:
+        #     node = queue.popleft()
+        #     visited += 1
+
+        #     for sequel in graph[node]:
+        #         indegrees[sequel] -= 1
+        #         if indegrees[sequel] == 0:
+        #             queue.append(sequel)
+
+        # return visited == numCourses
+
         numCourses = len(graph)
         indegrees = [0] * numCourses
-        for sequels in graph:
-            for sequel in sequels:
-                indegrees[sequel] += 1
-
-        queue = deque()
-        for sequel in range(numCourses):
-            if indegrees[sequel] == 0:
-                queue.append(sequel)
-
-        visited = 0
-        while queue:
-            node = queue.popleft()
-            visited += 1
-
-            for sequel in graph[node]:
-                indegrees[sequel] -= 1
-                if indegrees[sequel] == 0:
-                    queue.append(sequel)
-
-        return visited == numCourses
+        for nei in graph:
+            for n in nei:
+                indegrees[n] +=1
+        
+        q = deque([])
+        for i in range(numCourses):
+            if indegrees[i] == 0: q.append(i)
+        visited = set()
+        while q:
+            curNode = q.popleft()
+            visited.add(curNode)
+            for nei in graph[curNode]:
+                indegrees[nei] -=1
+                if indegrees[nei] == 0 and nei not in visited:
+                    q.append(nei)
+        return len(visited) == numCourses
+            
     
 class TestCourseSchedule:
     def test_no_cycles(self):

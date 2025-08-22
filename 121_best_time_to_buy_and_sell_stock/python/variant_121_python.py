@@ -1,14 +1,28 @@
 def find_cheapest_tickets(departures, returns):
-    min_departure_cost = departures[0]
-    min_cost = float('inf')
-    
-    for i in range(1, len(departures)):
-        min_cost = min(min_cost, min_departure_cost + returns[i])
+    MIND =  float('inf')
+    MINR = float('inf')
 
-        if departures[i] < min_departure_cost:
-            min_departure_cost = departures[i]
+    for i in range(len(departures)):
+        if MIND > departures[i]:
+            MIND = departures[i]
+        elif MINR > returns[i]:
+            MINR = min(abs(MIND+returns[i]),MINR)
+    return MINR
+
+
+
+
+
+    # min_departure_cost = departures[0]
+    # min_cost = float('inf')
     
-    return min_cost
+    # for i in range(1, len(departures)):
+    #     min_cost = min(min_cost, min_departure_cost + returns[i])
+
+    #     if departures[i] < min_departure_cost:
+    #         min_departure_cost = departures[i]
+    
+    # return min_cost
 
 if __name__ == "__main__":
     departures = [8, 3, 6, 10]
@@ -38,3 +52,5 @@ if __name__ == "__main__":
     departures = [4, 3, 5, 11, 2]
     returns = [1, 6, 10, 2, 9]
     assert find_cheapest_tickets(departures, returns) == 5
+
+    print('ALL Test Passed!!!')
