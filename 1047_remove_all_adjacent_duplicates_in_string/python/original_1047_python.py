@@ -6,4 +6,4 @@ def removeDuplicates(s):
         else:
             result.pop()
 
-    return ''.join(result)
+    return "".join(result)

@@ -11,8 +11,9 @@ class Solution:
 
             if window_sum == k:
                 return True
-            
+
         return False
+
 
 if __name__ == "__main__":
     solution = Solution()

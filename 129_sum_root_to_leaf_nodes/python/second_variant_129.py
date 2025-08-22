@@ -28,41 +28,39 @@ class Solution:
 
 if __name__ == "__main__":
     solution = Solution()
-    root = Solution.TreeNode(1, 
-            left=Solution.TreeNode(-2), 
-            right=Solution.TreeNode(3))
+    root = Solution.TreeNode(1, left=Solution.TreeNode(-2), right=Solution.TreeNode(3))
     assert solution.sumNumbers(root) == 1
 
-    root = Solution.TreeNode(-1, 
-            left=Solution.TreeNode(-2, 
-                left=Solution.TreeNode(-9)), 
-            right=Solution.TreeNode(4, 
-                left=Solution.TreeNode(-5)))
+    root = Solution.TreeNode(
+        -1,
+        left=Solution.TreeNode(-2, left=Solution.TreeNode(-9)),
+        right=Solution.TreeNode(4, left=Solution.TreeNode(-5)),
+    )
     assert solution.sumNumbers(root) == -129 + 145
 
-    root = Solution.TreeNode(-1, 
-            left=Solution.TreeNode(-2, 
-                left=Solution.TreeNode(-9, 
-                    left=Solution.TreeNode(3), 
-                        right=Solution.TreeNode(-3))),
-            right=Solution.TreeNode(4, 
-                left=Solution.TreeNode(-5), 
-                    right=Solution.TreeNode(6)))
+    root = Solution.TreeNode(
+        -1,
+        left=Solution.TreeNode(
+            -2,
+            left=Solution.TreeNode(
+                -9, left=Solution.TreeNode(3), right=Solution.TreeNode(-3)
+            ),
+        ),
+        right=Solution.TreeNode(
+            4, left=Solution.TreeNode(-5), right=Solution.TreeNode(6)
+        ),
+    )
     assert solution.sumNumbers(root) == -1293 + 1293 + 145 + -146
 
-    root = Solution.TreeNode(1, 
-            left=Solution.TreeNode(2), 
-            right=Solution.TreeNode(3))
+    root = Solution.TreeNode(1, left=Solution.TreeNode(2), right=Solution.TreeNode(3))
     assert solution.sumNumbers(root) == 12 + 13
 
-    root = Solution.TreeNode(-1, 
-            left=Solution.TreeNode(-2), 
-            right=Solution.TreeNode(-3))
+    root = Solution.TreeNode(
+        -1, left=Solution.TreeNode(-2), right=Solution.TreeNode(-3)
+    )
     assert solution.sumNumbers(root) == 12 + 13
 
-    root = Solution.TreeNode(-1, 
-            left=Solution.TreeNode(-2, 
-                left=Solution.TreeNode(-3)))
+    root = Solution.TreeNode(-1, left=Solution.TreeNode(-2, left=Solution.TreeNode(-3)))
     assert solution.sumNumbers(root) == -123
 
     root = None

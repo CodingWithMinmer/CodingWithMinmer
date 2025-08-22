@@ -1,5 +1,6 @@
 from utils.ListNode import ListNode
 
+
 class Solution_19:
     def removeNthFromEnd(self, head, n):
         dummy = ListNode()

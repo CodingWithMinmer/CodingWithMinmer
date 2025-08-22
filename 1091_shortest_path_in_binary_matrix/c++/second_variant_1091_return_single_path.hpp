@@ -1,7 +1,6 @@
 #pragma once
 
 #include <vector>
-#include <queue>
 
 // VARIANT: What if you had to return a single path? Note it's not necessarily the shortest.
 class Solution_1091_Second_Variant

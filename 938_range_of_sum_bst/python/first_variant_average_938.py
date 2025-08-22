@@ -1,10 +1,12 @@
 from typing import Optional
 
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
+
 
 class Solution:
     def rangeAverageBST(self, root: Optional[TreeNode], low: int, high: int) -> float:
@@ -21,6 +23,7 @@ class Solution:
             if curr.left and curr.val > low:
                 stack.append(curr.left)
         return result / count
+
 
 if __name__ == "__main__":
     solution = Solution()

@@ -1,5 +1,6 @@
 from typing import Optional
 
+
 class Solution:
     class TreeNode:
         def __init__(self, val=0, left=None, right=None):
@@ -11,13 +12,13 @@ class Solution:
         def getPlaces(num: int):
             if not num:
                 return 10
-                
+
             places = 1
             while num > 0:
                 num = num // 10
                 places *= 10
             return places
-        
+
         def preorder(node: Solution.TreeNode, curr_number: int):
             nonlocal root_to_leaf
             if node:

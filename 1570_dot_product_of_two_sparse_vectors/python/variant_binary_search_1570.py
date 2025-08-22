@@ -1,5 +1,5 @@
-from collections import namedtuple
 from bisect import bisect_left
+from collections import namedtuple
 
 
 class SparseVectorVariant:
